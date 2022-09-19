@@ -26,8 +26,13 @@ def reader(detector, img, file_name):
 if __name__ == '__main__':
     fail = []
     detector = apriltag.Detector()
-    directory = "data/Track 10-22/"
+    directory = './' # "data/Track 10-22/"
     for f in os.listdir(directory):
+        print(str(f))
+        if str(f) == '.DS_Store':
+            continue
+        if str(f) != 'large_sand.png':
+            continue
         file = directory+f
         print(file)
         img = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
